@@ -1,12 +1,15 @@
 from fastapi import FastAPI
-from rag_service import responder_pergunta
-app=FastAPI()
+from rag_service import answer_question
+
+app = FastAPI()
+
 
 @app.get("/")
 def home():
-    return {"mensagem":"A minha primeira API esta a funcioanr"}
+    return {"message": "My first API is working!"}
 
-@app.get("/pergunta")
-def pergunta(pergunta:str):
-    resposta=responder_pergunta(pergunta,r"C:\Dev\python-fundamentos\exercicos\Zoho_Caderno_Encargos_CRM_ServicosEnergias.pdf")# o r diz para ignorar os \ senao nao dava certo
-    return resposta
+
+@app.get("/question")
+def question(question: str):
+    answer = answer_question(question, r"C:\Dev\python-fundamentos\exercicos\Zoho_Caderno_Encargos_CRM_ServicosEnergias.pdf")  # r tells Python to ignore \ as escape characters
+    return answer

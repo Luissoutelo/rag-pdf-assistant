@@ -9,7 +9,7 @@ from rag_service import responder_pergunta
 
 app = FastAPI()
 
-#CAMINHO_PDF = r"C:\caminho\para\documento.pdf"
+
 CAMINHO_PDF = r"caminho_pdf"
 
 @app.get("/")
